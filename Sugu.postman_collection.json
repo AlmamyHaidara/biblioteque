@@ -1,0 +1,2133 @@
+{
+	"info": {
+		"_postman_id": "9cd6f00a-121c-487a-bff0-b7e65a777462",
+		"name": "Sugu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38024272"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Inscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\":\"Haidara\",\n    \"prenom\":\"Almamy\",\n    \"email\":\"almamyh27@gmail.com\",\n    \"telephone\":\"79079678\",\n    \"password\":\"12345678\",\n    \"profile\":\"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/auth/inscription"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDAxNjE1MTEsImV4cCI6MTc0MDI0NzkxMX0.mkZoYtKUtuomIGDIMVrc0EZFdJj7iIzN4Y4Wgzzt0-Y"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nom",
+									"value": "Haidara1",
+									"type": "text"
+								},
+								{
+									"key": "prenom",
+									"value": "Almamy",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "almamyh27@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "telephone",
+									"value": "79079678",
+									"type": "text"
+								},
+								{
+									"key": "profile",
+									"value": "ADMIN",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1efeb120-0f48-4be0-8261-60616dce33b5"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "{{local}}/user/1"
+					},
+					"response": []
+				},
+				{
+					"name": "updateBoutiqueProfiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJib3V0aXF1aWVyIl0sImlhdCI6MTc0NDI4Mzg0OCwiZXhwIjoxNzQ0MzcwMjQ4fQ.0ugKbLg8op23QR2sL-Vg2RbZUfqfRAa_59FS4JRINbA"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nom",
+									"value": "Boutique 4",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "16",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "almamy_haidara@outlook.fr",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "79079678",
+									"type": "text"
+								},
+								{
+									"key": "profile",
+									"value": "ADMIN",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "postman-cloud:///1efeb120-0f48-4be0-8261-60616dce33b5"
+								},
+								{
+									"key": "description",
+									"value": "Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{local}}/boutique/profile/16"
+					},
+					"response": []
+				},
+				{
+					"name": "Connexion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzQ4MzkzMTAsImV4cCI6MTczNDkyNTcxMH0._4Q7AyOAuWFaOuQTcNlO9IzaBTZX0OVUk7CHOO6-mGA"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"almamyh27@gmail.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/auth/connexion"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Boutique",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJjbGllbnQiXSwiaWF0IjoxNzM4ODYyNDc5LCJleHAiOjE3Mzg5NDg4Nzl9.36Ho1xPB1iAAy8K2f1Nfu325Q0jgTEGTlFdT6_qjCd0"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nom",
+									"value": "Boutique 2",
+									"type": "text"
+								},
+								{
+									"key": "categorie",
+									"value": "GROSSISTE",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "postman-cloud:///1efd6c6e-155c-4ce0-8261-42bcc829d70e"
+								},
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "NATIONAL",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "70000000",
+									"type": "text"
+								},
+								{
+									"key": "countryId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{local}}/boutique/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nom\": \"Boutique 1\",\n    \"categorie\": \"Chaussure\",\n    \"description\": \"Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.\",\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/boutique/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/boutique/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MzgwMDA4MDMsImV4cCI6MTczODA4NzIwM30.FajDsPf6FawSt94fUc_OxtVKFHqbJ-2oR_qKGye4Mtw"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/boutique/"
+					},
+					"response": []
+				},
+				{
+					"name": "FindByShopId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/boutique/all-produits/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindShopStatisticByShopId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDAzMTE4MTAsImV4cCI6MTc0MDM5ODIxMH0.16IEaV4popAr-pOhXGnojdM1rIuT0Ppz7ybCtoWHw7w"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/boutique/statistic/3"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAllByUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/boutique/all-produits/user/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/boutique/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Particulier",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDQ4MzMwOTAsImV4cCI6MTc0NDkxOTQ5MH0.yaH_-2Wea95WRI1Hifu0jHB3yYLjy9lZr9HfSW9zLlU"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "produitId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "quantiter",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "prix",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "prodName",
+									"value": "Produit 2",
+									"type": "text"
+								},
+								{
+									"key": "prodDescription",
+									"value": "Description du produit 2",
+									"type": "text"
+								},
+								{
+									"key": "isPublic",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "categorieId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "prodImg",
+									"type": "file",
+									"src": "postman-cloud:///1efd6c6e-155c-4ce0-8261-42bcc829d70e"
+								}
+							]
+						},
+						"url": "{{local}}/particulier/"
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "userId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "produitId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "quantiter",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "prix",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "prodName",
+											"value": "Produit 2",
+											"type": "text"
+										},
+										{
+											"key": "prodDescription",
+											"value": "Description du produit 2",
+											"type": "text"
+										},
+										{
+											"key": "isPublic",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "categorieId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "prodImg",
+											"type": "file",
+											"src": "postman-cloud:///1efd6c6e-155c-4ce0-8261-42bcc829d70e"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{local}}/particulier/"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "513"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"201-rLNlfU3NkhbTbswRQ8x2Uc7JIxw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Apr 2025 21:57:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Produit créé avec succès\",\n    \"data\": {\n        \"id\": 11,\n        \"nom\": \"Produit 2\",\n        \"description\": \"Description du produit 2\",\n        \"img\": \"particulier/particulier-1744840619282-394283379.png\",\n        \"tags\": null,\n        \"categorieId\": 1,\n        \"createdAt\": \"2025-04-16T21:57:02.410Z\",\n        \"updatedAt\": \"2025-04-16T21:57:02.410Z\",\n        \"isPublic\": true,\n        \"categories\": {\n            \"id\": 1,\n            \"nom\": \"Fruits\",\n            \"description\": \"Produits issus des vergers, très variés et colorés.\"\n        },\n        \"prix\": \"100\",\n        \"quantiter\": 5,\n        \"produitId\": 12,\n        \"boutiqueId\": null,\n        \"particularId\": 1,\n        \"prixId\": 11\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDQ4MzMwOTAsImV4cCI6MTc0NDkxOTQ5MH0.yaH_-2Wea95WRI1Hifu0jHB3yYLjy9lZr9HfSW9zLlU"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "produitId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "quantiter",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "prix",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "prodName",
+									"value": "Produit 3",
+									"type": "text"
+								},
+								{
+									"key": "prodDescription",
+									"value": "Description du produit 3",
+									"type": "text"
+								},
+								{
+									"key": "isPublic",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "categorieId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "prodImg",
+									"type": "file",
+									"src": "postman-cloud:///1efd6c6e-155c-4ce0-8261-42bcc829d70e"
+								}
+							]
+						},
+						"url": "{{local}}/particulier/"
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "userId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "produitId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "quantiter",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "prix",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "prodName",
+											"value": "Produit 2",
+											"type": "text"
+										},
+										{
+											"key": "prodDescription",
+											"value": "Description du produit 2",
+											"type": "text"
+										},
+										{
+											"key": "isPublic",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "categorieId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "prodImg",
+											"type": "file",
+											"src": "postman-cloud:///1efd6c6e-155c-4ce0-8261-42bcc829d70e"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{local}}/particulier/"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "513"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"201-rLNlfU3NkhbTbswRQ8x2Uc7JIxw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Apr 2025 21:57:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Produit créé avec succès\",\n    \"data\": {\n        \"id\": 11,\n        \"nom\": \"Produit 2\",\n        \"description\": \"Description du produit 2\",\n        \"img\": \"particulier/particulier-1744840619282-394283379.png\",\n        \"tags\": null,\n        \"categorieId\": 1,\n        \"createdAt\": \"2025-04-16T21:57:02.410Z\",\n        \"updatedAt\": \"2025-04-16T21:57:02.410Z\",\n        \"isPublic\": true,\n        \"categories\": {\n            \"id\": 1,\n            \"nom\": \"Fruits\",\n            \"description\": \"Produits issus des vergers, très variés et colorés.\"\n        },\n        \"prix\": \"100\",\n        \"quantiter\": 5,\n        \"produitId\": 12,\n        \"boutiqueId\": null,\n        \"particularId\": 1,\n        \"prixId\": 11\n    }\n}"
+						},
+						{
+							"name": "create Copy",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "userId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "produitId",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "quantiter",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "prix",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "prodName",
+											"value": "Produit 3",
+											"type": "text"
+										},
+										{
+											"key": "prodDescription",
+											"value": "Description du produit 3",
+											"type": "text"
+										},
+										{
+											"key": "isPublic",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "categorieId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "prodImg",
+											"type": "file",
+											"src": "postman-cloud:///1efd6c6e-155c-4ce0-8261-42bcc829d70e"
+										}
+									]
+								},
+								"url": "{{local}}/particulier/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "550"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"226-TSfU7WcOEc1AlGeXc38n8PNuFCY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Apr 2025 00:14:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Produit modifié avec succès\",\n    \"data\": {\n        \"id\": 2,\n        \"nom\": \"Produit 3\",\n        \"description\": \"Description du produit 3\",\n        \"img\": \"image.jpg\",\n        \"tags\": null,\n        \"categorieId\": 1,\n        \"createdAt\": \"2025-04-16T20:14:19.609Z\",\n        \"updatedAt\": \"2025-04-17T00:14:11.598Z\",\n        \"isPublic\": false,\n        \"categories\": {\n            \"id\": 1,\n            \"nom\": \"Fruits\",\n            \"description\": \"Produits issus des vergers, très variés et colorés.\"\n        },\n        \"prix\": \"100\",\n        \"quantiter\": 5,\n        \"particular\": {\n            \"id\": 1,\n            \"userId\": 1,\n            \"createdAt\": \"2025-04-16T20:14:19.125Z\",\n            \"updatedAt\": \"2025-04-16T20:14:19.125Z\"\n        },\n        \"particularId\": 1,\n        \"prixId\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/particulier/:userId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDQ4MzMwOTAsImV4cCI6MTc0NDkxOTQ5MH0.yaH_-2Wea95WRI1Hifu0jHB3yYLjy9lZr9HfSW9zLlU"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nom\": \"Boutique 1\",\n    \"categorie\": \"Chaussure\",\n    \"description\": \"Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.\",\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/particulier/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/particulier/:userId Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJjbGllbnQiXSwiaWF0IjoxNzQ1NTc1NjEyLCJleHAiOjE3NDU2NjIwMTJ9.d4CuTTKOcqbwWTOuWU0Pz5F9BCqACxVVA8M-7hVnq20"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nom\": \"Boutique 1\",\n    \"categorie\": \"Chaussure\",\n    \"description\": \"Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.\",\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/particulier/product/approved/"
+					},
+					"response": []
+				},
+				{
+					"name": "/particulier/:userId/:productId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDQ4MzMwOTAsImV4cCI6MTc0NDkxOTQ5MH0.yaH_-2Wea95WRI1Hifu0jHB3yYLjy9lZr9HfSW9zLlU"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nom\": \"Boutique 1\",\n    \"categorie\": \"Chaussure\",\n    \"description\": \"Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.\",\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/particulier/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/particulier/:userId/:produitId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDQ4MzMwOTAsImV4cCI6MTc0NDkxOTQ5MH0.yaH_-2Wea95WRI1Hifu0jHB3yYLjy9lZr9HfSW9zLlU"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/particulier/1/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDEzODU4MzksImV4cCI6MTc0MTQ3MjIzOX0.OE_R_EUF3SK4UefMe4c_4Uq95kL8GWigmR88uTeu9f8"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":1,\n    \"type\":\"ORDER\",\n    \"title\":\"Command de 10 produit\",\n    \"message\":\"Votre command a été prise en charge\",\n    // \"status\":\"UNREAD\",\n    // \"readAt\":\"2025-02-{\n    \"status\":\"UNREAD\",\n    \"readAt\":\"2025-02-16T02:24:06.591Z\",\n    \"data\":{\n        \"screen\":\"/screens/command/OrderHistoryScreen\"\n    }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/notifications"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3Mzk5ODQ4MDUsImV4cCI6MTc0MDA3MTIwNX0.B5A6EVa8N65ExsVljSktMuN7EKjz7Co3nFQHeTPRgd0"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nom\": \"Boutique 1\",\n    \"categorie\": \"Chaussure\",\n    \"description\": \"Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.\",\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/notifications/1/read/2025-02-19T17:10:57.783Z"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/boutique/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MzgwMDA4MDMsImV4cCI6MTczODA4NzIwM30.FajDsPf6FawSt94fUc_OxtVKFHqbJ-2oR_qKGye4Mtw"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/boutique/"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAllByUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3Mzk4MTkxMjgsImV4cCI6MTczOTkwNTUyOH0.usnFNqWkp-SvDhZsxuZJHivrVoFNU5nuS6sHLUbWAH4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/notifications/all/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindUnreadByUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3Mzk4MTkxMjgsImV4cCI6MTczOTkwNTUyOH0.usnFNqWkp-SvDhZsxuZJHivrVoFNU5nuS6sHLUbWAH4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/notifications/unread/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3Mzk4MTkxMjgsImV4cCI6MTczOTkwNTUyOH0.usnFNqWkp-SvDhZsxuZJHivrVoFNU5nuS6sHLUbWAH4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/notifications/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produit",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MzgwMDA4MDMsImV4cCI6MTczODA4NzIwM30.FajDsPf6FawSt94fUc_OxtVKFHqbJ-2oR_qKGye4Mtw"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nom",
+									"value": "Coque Iphone",
+									"type": "text"
+								},
+								{
+									"key": "categorie",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "postman-cloud:///1efc0105-e7c7-4840-9b84-fbc5cf2c6cc2"
+								},
+								{
+									"key": "quantiter",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "boutique",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "prix",
+									"value": "2000",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{local}}/produit"
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "categorie",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Hello Avery body",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "img",
+											"type": "file",
+											"src": "postman-cloud:///1efeb120-0f48-4be0-8261-60616dce33b5"
+										},
+										{
+											"key": "nom",
+											"value": "Soulier avec la peau de lion",
+											"type": "text"
+										},
+										{
+											"key": "prix",
+											"value": "20000",
+											"type": "text"
+										},
+										{
+											"key": "quantiter",
+											"value": "50",
+											"type": "text"
+										},
+										{
+											"key": "tags",
+											"value": "['Chaussure']",
+											"type": "text"
+										},
+										{
+											"key": "boutique",
+											"value": "1",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{local}}/produit/"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "472"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d8-Cj9ktMDSvoI18oUWkuuOfl7xMBk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Apr 2025 20:12:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Produit créé avec succès\",\n    \"data\": {\n        \"id\": 1,\n        \"nom\": \"Soulier avec la peau de lion\",\n        \"description\": \"Hello Avery body\",\n        \"img\": \"produits/produit-1744834367220-945955061.png\",\n        \"tags\": \"['Chaussure']\",\n        \"categorieId\": 5,\n        \"createdAt\": \"2025-04-16T20:12:47.589Z\",\n        \"updatedAt\": \"2025-04-16T20:12:47.589Z\",\n        \"isPublic\": false,\n        \"categories\": {\n            \"id\": 5,\n            \"nom\": \"Charcuterie\",\n            \"description\": \"Viandes préparées, saucissons, jambons.\"\n        },\n        \"prix\": \"20000\",\n        \"quantiter\": 50,\n        \"prixId\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nom\": \"Produit 1\",\n    \"categorie\": \"Chaussure\",\n    \"description\": \"Bienvenue chez produit 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/produit/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{local}}/produit/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/produit/"
+					},
+					"response": []
+				},
+				{
+					"name": "FindProduitByShopId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/produit/shop-products/1"
+					},
+					"response": [
+						{
+							"name": "FindProduitByShopId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{local}}/produit/shop-products/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1163"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48b-ujm2+xrBinhQIzFS734mpRjp3nY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 May 2025 14:00:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Liste des produits de la boutique #1\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nom\": \"HP zboock\",\n            \"description\": \"Tghsushhshsj\",\n            \"img\": \"produits/produit-1744722942255-262130300.jpeg\",\n            \"tags\": \"[\\\"\\\"]\",\n            \"type\": \"BOUTIQUE\",\n            \"status\": \"PENDING\",\n            \"rejectionComment\": null,\n            \"categorieId\": 42,\n            \"createdAt\": \"2025-04-15T13:15:43.683Z\",\n            \"updatedAt\": \"2025-04-15T13:15:43.683Z\",\n            \"isPublic\": false,\n            \"prix\": \"500000\",\n            \"quantiter\": 10,\n            \"boutiqueId\": 1,\n            \"produitId\": 1\n        },\n        {\n            \"id\": 9,\n            \"nom\": \"Ggffttt\",\n            \"description\": \"Ffffg\",\n            \"img\": \"produits/produit-1746543511117-852220333.jpeg\",\n            \"tags\": \"[\\\"Tfff\\\",\\\"U\\\"]\",\n            \"type\": \"BOUTIQUE\",\n            \"status\": \"APPROVED\",\n            \"rejectionComment\": null,\n            \"categorieId\": 2,\n            \"createdAt\": \"2025-05-06T14:57:44.853Z\",\n            \"updatedAt\": \"2025-05-06T14:58:32.709Z\",\n            \"isPublic\": true,\n            \"prix\": \"556\",\n            \"quantiter\": 55,\n            \"boutiqueId\": 1,\n            \"produitId\": 9\n        },\n        {\n            \"id\": 10,\n            \"nom\": \"Hello\",\n            \"description\": \"Alimentation \",\n            \"img\": \"produits/produit-1746827613079-504620290.jpeg\",\n            \"tags\": \"[\\\"Vsvsbe\\\",\\\"Hello\\\"]\",\n            \"type\": \"BOUTIQUE\",\n            \"status\": \"APPROVED\",\n            \"rejectionComment\": null,\n            \"categorieId\": 47,\n            \"createdAt\": \"2025-05-09T21:53:34.090Z\",\n            \"updatedAt\": \"2025-05-09T21:57:09.860Z\",\n            \"isPublic\": true,\n            \"prix\": \"20000\",\n            \"quantiter\": 0,\n            \"boutiqueId\": 1,\n            \"produitId\": 10\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "FindProduitByShopId Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDAyNTE1NzUsImV4cCI6MTc0MDMzNzk3NX0.Ou0NIiXy7C7uJtEIkAT51XznetA1y4gA-YxdQ2pISLw"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/produit/by-shop-id/2/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindProduitByShopId Copy 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDAyNTE1NzUsImV4cCI6MTc0MDMzNzk3NX0.Ou0NIiXy7C7uJtEIkAT51XznetA1y4gA-YxdQ2pISLw"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/produit/by-shop-id/2/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/produit/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prix",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prix\":\"2000\",\n    \"quantiter\":100,\n    \"produitId\":1,\n    \"boutiqueId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/prix/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prix\":\"3000\",\n    \"quantiter\":20,\n    \"produitId\":1,\n    \"boutiqueId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/prix/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{local}}/prix/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/prix/"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/prix/1?produitId=1&boutiqueId=1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"prix",
+								"1"
+							],
+							"query": [
+								{
+									"key": "produitId",
+									"value": "1"
+								},
+								{
+									"key": "boutiqueId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catégorie de produit",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\":\"\",\n    \"description\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/categorie-produit/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\":\"\",\n    \"description\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/categorie-produit/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{local}}/categorie-produit/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/categorie-produit/"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/categorie-produit/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Panier",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"count\":2,\n    \"utilisateurId\":1,\n    \"produitId\":1,\n    \"boutiqueId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/panier/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"count\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/panier/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzQ4MzkzMTAsImV4cCI6MTczNDkyNTcxMH0._4Q7AyOAuWFaOuQTcNlO9IzaBTZX0OVUk7CHOO6-mGA"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{local}}/panier/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/panier/?utilisateurId=1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"panier",
+								""
+							],
+							"query": [
+								{
+									"key": "utilisateurId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/panier/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOneByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"boutiqueId\": 1,\n    \"boutiques\": {\n        \"categorie\": \"Grossiste\",\n        \"description\": \"Bienvenue chez boutique 1 , votre destination incontournable pour toutes vos envies de chaussures ! Située au cœur de [Ville/Quartier], notre boutique est spécialisée dans la vente de chaussures pour hommes, femmes et enfants, adaptées à tous les styles et toutes les occasions.\",\n        \"id\": 1,\n        \"img\": \"uploads/boutiques/boutique-1734893525295-261362471.png\",\n        \"nom\": \"Boutique 1\"\n    },\n    \"count\": 22,\n    \"id\": 1,\n    \"produits\": {\n        \"categorie\": \"Chossure\",\n        \"description\": \"Montre en cuir élégante avec un cadran classique et un bracelet en cuir véritable, idéale pour toutes les occasions. Résistante à l'eau, elle allie style et praticité au quotidien.\",\n        \"id\": 4,\n        \"img\": \"uploads/produits/produit-1734840897383-568785535.png\",\n        \"nom\": \"Aire Force 4\",\n        \"prix\": \"3000\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/panier/?utilisateurId=1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"panier",
+								""
+							],
+							"query": [
+								{
+									"key": "utilisateurId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Adresse",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDIwNDAwODQsImV4cCI6MTc0MjEyNjQ4NH0.5g3Z4ZNVcO1CyC4h3yqEKdCiJJVkZ5maU9Ko9iW7MtA"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\":\"Ma maison\",\n    \"quartier\":\"Bamako, Kalaban Coura ACI\",\n    \"telephone\":\"77000000\",\n    \"description\":\"A cote du grand marche \",\n    \"userId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/adresse/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\":\"Ma maison\",\n    \"quartier\":\"Bamako, Kalaban Coura ACI\",\n    \"telephone\":\"77000000\",\n    \"description\":\"A cote du grand marche \",\n    \"userId\":4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/adresse/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/adresse/3?userId=4",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"adresse",
+								"3"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/adresse/"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/adresse/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindOneByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/adresse/user/4"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Commande",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDQwNjY4NDEsImV4cCI6MTc0NDE1MzI0MX0.hkvAzu8QIKyqIBJ7_KWHEv-Fn6ckMljdstkx7odH6rY"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usetilisateurId\": 27,\n  \"adresseId\": 2,\n  \"commandeNbr\": \"CMD-2024-001\",\n  \"ligneCommands\": [\n    {\n      \"quantiter\": 2,\n      \"prixId\": 13\n    }\n  ],\n  \"etat\": \"ATTENTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url_2}}/commande"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateState",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"etat\":\"VALIDER\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local}}/commande/1"
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/commande/?userId=2",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"commande",
+								""
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/commande/3/?userId=2",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"commande",
+								"3",
+								""
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByShopId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3NDAzMTE4MTAsImV4cCI6MTc0MDM5ODIxMH0.16IEaV4popAr-pOhXGnojdM1rIuT0Ppz7ybCtoWHw7w"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/commande/by-shop-id/2"
+					},
+					"response": [
+						{
+							"name": "FindByShopId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{local}}/commande/by-shop-id/2"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1574"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"626-8ze3cwvLZ3PFlAZRukp1meiSBh0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Feb 2025 12:15:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"data\": [\n        [\n            {\n                \"id\": 1,\n                \"prixId\": 1,\n                \"commandeId\": 1,\n                \"quantiter\": 2,\n                \"createdAt\": \"2025-02-20T18:17:55.777Z\",\n                \"updatedAt\": \"2025-02-20T18:17:55.777Z\",\n                \"products\": {\n                    \"id\": 2,\n                    \"nom\": \"T-shirt coton bio\",\n                    \"description\": \"T-shirt confortable 100% coton bio\",\n                    \"img\": \"uploads/produits/image.png\",\n                    \"tags\": [\n                        \"coton\",\n                        \"bio\"\n                    ],\n                    \"categorieId\": 1,\n                    \"createdAt\": \"2025-02-06T17:53:18.750Z\",\n                    \"updatedAt\": \"2025-02-23T04:45:29.254Z\",\n                    \"categories\": {\n                        \"id\": 1,\n                        \"nom\": \"Fruits\",\n                        \"description\": \"Produits issus des vergers, très variés et colorés.\"\n                    },\n                    \"prix\": \"49.99\",\n                    \"quantiter\": 96\n                }\n            }\n        ],\n        [\n            {\n                \"id\": 3,\n                \"prixId\": 4,\n                \"commandeId\": 3,\n                \"quantiter\": 7,\n                \"createdAt\": \"2025-02-21T08:06:16.235Z\",\n                \"updatedAt\": \"2025-02-21T08:06:16.235Z\",\n                \"products\": {\n                    \"id\": 5,\n                    \"nom\": \"Casque Bluetooth\",\n                    \"description\": \"Casque sans fil, réduction de bruit active\",\n                    \"img\": \"uploads/produits/image.png\",\n                    \"tags\": [\n                        \"audio\",\n                        \"bluetooth\"\n                    ],\n                    \"categorieId\": 5,\n                    \"createdAt\": \"2025-02-06T17:53:18.750Z\",\n                    \"updatedAt\": \"2025-02-06T17:53:18.750Z\",\n                    \"categories\": {\n                        \"id\": 5,\n                        \"nom\": \"Charcuterie\",\n                        \"description\": \"Viandes préparées, saucissons, jambons.\"\n                    },\n                    \"prix\": \"999\",\n                    \"quantiter\": 3\n                }\n            }\n        ],\n        [\n            {\n                \"id\": 2,\n                \"prixId\": 1,\n                \"commandeId\": 2,\n                \"quantiter\": 2,\n                \"createdAt\": \"2025-02-20T18:18:00.044Z\",\n                \"updatedAt\": \"2025-02-20T18:18:00.044Z\",\n                \"products\": {\n                    \"id\": 2,\n                    \"nom\": \"T-shirt coton bio\",\n                    \"description\": \"T-shirt confortable 100% coton bio\",\n                    \"img\": \"uploads/produits/image.png\",\n                    \"tags\": [\n                        \"coton\",\n                        \"bio\"\n                    ],\n                    \"categorieId\": 1,\n                    \"createdAt\": \"2025-02-06T17:53:18.750Z\",\n                    \"updatedAt\": \"2025-02-23T04:45:29.254Z\",\n                    \"categories\": {\n                        \"id\": 1,\n                        \"nom\": \"Fruits\",\n                        \"description\": \"Produits issus des vergers, très variés et colorés.\"\n                    },\n                    \"prix\": \"49.99\",\n                    \"quantiter\": 96\n                }\n            }\n        ]\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/commande/?userId=2",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"commande",
+								""
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Published",
+			"item": [
+				{
+					"name": "publicity/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{local}}/publicity"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzcxOTE5OTcsImV4cCI6MTczNzI3ODM5N30.RleSNYtYnTUVst410U16BLTSt2DpzNzg7uCwxclNhFc"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}

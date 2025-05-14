@@ -1,0 +1,864 @@
+{
+  "info": {
+    "_postman_id": "b5e8f00a-121c-487a-bff0-b7e65a777462",
+    "name": "Bibliotheque",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "38024272"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/auth/register"
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/auth/login"
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refreshToken\": \"your-refresh-token\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/auth/refresh-token"
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refreshToken\": \"your-refresh-token\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/auth/logout"
+          },
+          "response": []
+        },
+        {
+          "name": "Logout All",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/api/auth/logout-all"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/me"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User By ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Update My Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Updated\",\n    \"lastName\": \"Name\",\n    \"email\": \"updated@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/users/me"
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Updated\",\n    \"lastName\": \"Name\",\n    \"email\": \"updated@example.com\",\n    \"role\": \"LIBRARIAN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"currentPassword\": \"password123\",\n    \"newPassword\": \"newpassword123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/users/me/password"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books?page=1&limit=10&search=&categoryId=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "search",
+                  "value": ""
+                },
+                {
+                  "key": "categoryId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Book By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/books/{{bookId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Book",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "The Great Gatsby",
+                  "type": "text"
+                },
+                {
+                  "key": "author",
+                  "value": "F. Scott Fitzgerald",
+                  "type": "text"
+                },
+                {
+                  "key": "isbn",
+                  "value": "9780743273565",
+                  "type": "text"
+                },
+                {
+                  "key": "publicationYear",
+                  "value": "1925",
+                  "type": "text"
+                },
+                {
+                  "key": "publisher",
+                  "value": "Scribner",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "A novel about the American Dream in the Jazz Age",
+                  "type": "text"
+                },
+                {
+                  "key": "quantity",
+                  "value": "5",
+                  "type": "text"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "{{categoryId}}",
+                  "type": "text"
+                },
+                {
+                  "key": "coverImage",
+                  "type": "file",
+                  "src": "/path/to/your/image.jpg"
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/api/books"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Updated Title",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "quantity",
+                  "value": "10",
+                  "type": "text"
+                },
+                {
+                  "key": "coverImage",
+                  "type": "file",
+                  "src": "/path/to/your/new-image.jpg"
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/api/books/{{bookId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/books/{{bookId}}"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/categories"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Category By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/categories/{{categoryId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Science Fiction\",\n    \"description\": \"Science fiction books and novels\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/categories"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Category Name\",\n    \"description\": \"Updated category description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/categories/{{categoryId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/categories/{{categoryId}}"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Loans",
+      "item": [
+        {
+          "name": "Get All Loans",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/loans?page=1&limit=10&status=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "loans"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Loans",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/loans/me?page=1&limit=10&status=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "loans", "me"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Loan By ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/loans/{{loanId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Loan",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userId\": \"{{userId}}\",\n    \"bookId\": \"{{bookId}}\",\n    \"dueDate\": \"2025-06-14T00:00:00.000Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/loans"
+          },
+          "response": []
+        },
+        {
+          "name": "Return Book",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": "{{baseUrl}}/api/loans/{{loanId}}/return"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Overdue Loans",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/loans/overdue?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "loans", "overdue"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reservations",
+      "item": [
+        {
+          "name": "Get All Reservations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations?page=1&limit=10&status=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reservations"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Reservations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/me?page=1&limit=10&status=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reservations", "me"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Reservation By ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/reservations/{{reservationId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Reservation",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"bookId\": \"{{bookId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/reservations"
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel Reservation",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": "{{baseUrl}}/api/reservations/{{reservationId}}/cancel"
+          },
+          "response": []
+        },
+        {
+          "name": "Fulfill Reservation",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": "{{baseUrl}}/api/reservations/{{reservationId}}/fulfill"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/health"
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9999",
+      "type": "string"
+    },
+    {
+      "key": "accessToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "bookId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "categoryId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "loanId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "reservationId",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
