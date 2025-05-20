@@ -128,8 +128,23 @@ export const createBook = async (
   next: NextFunction
 ) => {
   try {
+    // Detailed debugging
+    console.log('Headers:', req.headers);
+    console.log('Content-Type:', req.headers['content-type']);
+    console.log('Request body type:', typeof req.body);
+    console.log('Request body:', req.body);
+    
+    // Sécurité pour éviter l'erreur avec Object.keys
+    const requestBody = req.body || {};
+    console.log('Request body keys:', Object.keys(requestBody));
+    
+    // Check if request body is empty
+    if (!requestBody || Object.keys(requestBody).length === 0) {
+      return next(new AppError('Request body is empty. Book data is required', 400));
+    }
+    
     // Validate input
-    const validatedData = createBookSchema.parse(req.body);
+    const validatedData = createBookSchema.parse(requestBody);
     
     // Check if category exists
     const categoryExists = await prisma.category.findUnique({
