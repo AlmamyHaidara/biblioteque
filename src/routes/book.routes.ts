@@ -36,7 +36,10 @@ const parseMultipartData = (req: express.Request, res: express.Response, next: e
       
       // Si une image de couverture est téléchargée, stocker le chemin
       if (req.file) {
-        req.body.coverImage = req.file.path;
+        // Stocker le chemin relatif pour accès via URL
+        const coverImagePath = `/uploads/${req.file.filename}`;
+        req.body.coverImage = coverImagePath;
+        console.log('Image de couverture enregistrée:', req.body.coverImage);
       }
     }
   }

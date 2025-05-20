@@ -44,6 +44,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// Servir les fichiers statiques du dossier uploads
+app.use('/uploads', express.static('uploads'));
+
 // Configuration CORS flexible
 const allowedOrigins = process.env.ALLOWED_ORIGINS 
   ? process.env.ALLOWED_ORIGINS.split(',')
@@ -64,7 +68,6 @@ app.use(cors({
   },
   credentials: true
 }));
-
 
 app.use(helmet());
 app.use(morgan('dev'));

@@ -164,6 +164,7 @@ export const createBook = async (
       return next(new AppError('A book with this ISBN already exists', 400));
     }
     
+    console.log(validatedData);
     // Create book
     const newBook = await prisma.book.create({
       data: validatedData,
@@ -176,11 +177,22 @@ export const createBook = async (
         },
       },
     });
-    
+
+    // Construire l'URL complète pour l'image de couverture dans la réponse
+    let bookResponse = newBook;
+    console.log(newBook);
+    if (newBook.coverImage) {
+      const baseUrl = `${req.protocol}://${req.get('host')}`;
+      bookResponse = {
+        ...newBook,
+        // coverImageUrl: `${newBook.coverImage}`
+      };
+    }
+
     res.status(201).json({
       status: 'success',
       data: {
-        book: newBook,
+        book: bookResponse,
       },
     });
   } catch (error) {
